@@ -3,7 +3,7 @@
 %define name		klu
 %define NAME		KLU
 %define version		1.0.1
-%define release		%mkrel 2
+%define release		%mkrel 3
 %define major		%{version}
 %define libname		%mklibname %{name} %{major}
 %define develname	%mklibname %{name} -d
@@ -11,7 +11,7 @@
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
-Summary:	Routines for solving unsymmetric sparse linear systems
+Summary:	Routines for performing sparse LU factorization
 Group:		System/Libraries
 License:	LGPL
 URL:		http://www.cise.ufl.edu/research/sparse/umfpack/
@@ -23,20 +23,24 @@ BuildRequires:	cholmod-devel >= 1.0.0
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
+KLU is a sparse LU factorization algorithm well-suited for use in
+circuit simulation.
 
 %package -n %{libname}
-Summary:	Library of routines for solving unsymmetric sparse linear systems
+Summary:	Library of routines for performing sparse LU factorization
 Group:		System/Libraries
 Provides:	%{libname} = %{epoch}:%{version}-%{release}
 Obsoletes:	%mklibname %name 1
 
 %description -n %{libname}
+KLU is a sparse LU factorization algorithm well-suited for use in
+circuit simulation.
 
 This package contains the library needed to run programs dynamically
 linked against %{NAME}.
 
 %package -n %{develname}
-Summary:	C routines for solving unsymmetric sparse linear systems
+Summary:	C routines for performing sparse LU factorization
 Group:		Development/C
 Requires:	suitesparse-common-devel >= 3.0.0
 Requires:	%{libname} = %{epoch}:%{version}-%{release}
@@ -45,6 +49,8 @@ Obsoletes: 	%mklibname %name 1 -d
 Obsoletes: 	%mklibname %name 1 -d -s
 
 %description -n %{develname}
+KLU is a sparse LU factorization algorithm well-suited for use in
+circuit simulation.
 
 This package contains the files needed to develop applications which
 use %{name}.
