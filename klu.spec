@@ -3,7 +3,7 @@
 %define name		klu
 %define NAME		KLU
 %define version		1.0.1
-%define release		%mkrel 4
+%define release		%mkrel 5
 %define major		%{version}
 %define libname		%mklibname %{name} %{major}
 %define develname	%mklibname %{name} -d
@@ -95,11 +95,11 @@ done
 
 %files -n %{libname}
 %defattr(-,root,root)
-%{_docdir}/%{name}
 %{_libdir}/*.so.*
 
 %files -n %{develname}
 %defattr(-,root,root)
+%{_docdir}/%{name}
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/*.a
