@@ -3,7 +3,7 @@
 %define name		klu
 %define NAME		KLU
 %define version		1.0.1
-%define release		%mkrel 3
+%define release		%mkrel 4
 %define major		%{version}
 %define libname		%mklibname %{name} %{major}
 %define develname	%mklibname %{name} -d
@@ -30,7 +30,6 @@ circuit simulation.
 Summary:	Library of routines for performing sparse LU factorization
 Group:		System/Libraries
 Provides:	%{libname} = %{epoch}:%{version}-%{release}
-Obsoletes:	%mklibname %name 1
 
 %description -n %{libname}
 KLU is a sparse LU factorization algorithm well-suited for use in
