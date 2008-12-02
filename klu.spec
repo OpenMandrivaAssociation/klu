@@ -3,7 +3,7 @@
 %define name		klu
 %define NAME		KLU
 %define version		1.0.1
-%define release		%mkrel 7
+%define release		%mkrel 8
 %define major		%{version}
 %define libname		%mklibname %{name} %{major}
 %define develname	%mklibname %{name} -d
@@ -11,12 +11,13 @@
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
+Epoch:		%{epoch}
 Summary:	Routines for performing sparse LU factorization
 Group:		System/Libraries
 License:	LGPL
 URL:		http://www.cise.ufl.edu/research/sparse/umfpack/
 Source0:	http://www.cise.ufl.edu/research/sparse/umfpack/%{NAME}-%{version}.tar.gz
-Source1:	http://www.cise.ufl.edu/research/sparse/ufconfig/UFconfig-3.1.0.tar.gz
+Source1:	http://www.cise.ufl.edu/research/sparse/ufconfig/UFconfig-3.2.0.tar.gz
 BuildRequires:	amd-devel >= 2.0.0, colamd-devel >= 2.0.0, btf-devel >= 1.0.0
 BuildRequires:	camd-devel >= 2.0.0, ccolamd-devel >= 2.0.0
 BuildRequires:	cholmod-devel >= 1.0.0
@@ -30,6 +31,7 @@ circuit simulation.
 Summary:	Library of routines for performing sparse LU factorization
 Group:		System/Libraries
 Provides:	%{libname} = %{epoch}:%{version}-%{release}
+Obsoletes:	%mklibname %{name} 1
 
 %description -n %{libname}
 KLU is a sparse LU factorization algorithm well-suited for use in
@@ -44,8 +46,8 @@ Group:		Development/C
 Requires:	suitesparse-common-devel >= 3.0.0
 Requires:	%{libname} = %{epoch}:%{version}-%{release}
 Provides:	%{name}-devel = %{epoch}:%{version}-%{release}
-Obsoletes: 	%mklibname %name 1 -d
-Obsoletes: 	%mklibname %name 1 -d -s
+Obsoletes: 	%mklibname %{name} 1 -d
+Obsoletes: 	%mklibname %{name} 1 -d -s
 
 %description -n %{develname}
 KLU is a sparse LU factorization algorithm well-suited for use in
