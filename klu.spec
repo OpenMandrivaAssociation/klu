@@ -3,7 +3,7 @@
 %define name		klu
 %define NAME		KLU
 %define version		1.0.1
-%define release		%mkrel 8
+%define release		%mkrel 9
 %define major		%{version}
 %define libname		%mklibname %{name} %{major}
 %define develname	%mklibname %{name} -d
@@ -17,11 +17,11 @@ Group:		System/Libraries
 License:	LGPL
 URL:		http://www.cise.ufl.edu/research/sparse/umfpack/
 Source0:	http://www.cise.ufl.edu/research/sparse/umfpack/%{NAME}-%{version}.tar.gz
-Source1:	http://www.cise.ufl.edu/research/sparse/ufconfig/UFconfig-3.2.0.tar.gz
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 BuildRequires:	amd-devel >= 2.0.0, colamd-devel >= 2.0.0, btf-devel >= 1.0.0
 BuildRequires:	camd-devel >= 2.0.0, ccolamd-devel >= 2.0.0
 BuildRequires:	cholmod-devel >= 1.0.0
-BuildRoot:	%{_tmppath}/%{name}-%{version}
+BuildRequires:	suitesparse-common-devel >= 3.2.0-2
 
 %description
 KLU is a sparse LU factorization algorithm well-suited for use in
@@ -58,12 +58,13 @@ use %{name}.
 
 %prep
 %setup -q -c 
-%setup -q -c -a 0 -a 1
-%setup -q -D -T -n %{name}-%{version}/%{NAME}
+%setup -q -D -n %{name}-%{version}/%{NAME}
+mkdir ../UFconfig
+ln -sf %{_includedir}/suitesparse/UFconfig.* ../UFconfig
 
 %build
 pushd Lib
-    %make -f Makefile CC=%__cc CFLAGS="$RPM_OPT_FLAGS -fPIC -I/usr/include/suitesparse" INC=
+    %make -f Makefile CC=%__cc CFLAGS="%{optflags} -fPIC -I%{_includedir}/suitesparse" INC=
     %__cc -shared -Wl,-soname,lib%{name}.so.%{major} -o lib%{name}.so.%{version} -lamd -lcolamd -lbtf -lcholmod -lm *.o
 popd
 
