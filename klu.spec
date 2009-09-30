@@ -2,8 +2,13 @@
 
 %define name		klu
 %define NAME		KLU
+<<<<<<< .mine
+%define version		1.1.0
+%define release		%mkrel 1
+=======
 %define version		1.0.1
 %define release		%mkrel 10
+>>>>>>> .r451834
 %define major		%{version}
 %define libname		%mklibname %{name} %{major}
 %define develname	%mklibname %{name} -d
@@ -15,8 +20,8 @@ Epoch:		%{epoch}
 Summary:	Routines for performing sparse LU factorization
 Group:		System/Libraries
 License:	LGPL
-URL:		http://www.cise.ufl.edu/research/sparse/umfpack/
-Source0:	http://www.cise.ufl.edu/research/sparse/umfpack/%{NAME}-%{version}.tar.gz
+URL:		http://www.cise.ufl.edu/research/sparse/klu/
+Source0:	http://www.cise.ufl.edu/research/sparse/klu/%{NAME}-%{version}.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 BuildRequires:	amd-devel >= 2.0.0, colamd-devel >= 2.0.0, btf-devel >= 1.0.0
 BuildRequires:	camd-devel >= 2.0.0, ccolamd-devel >= 2.0.0
@@ -43,7 +48,7 @@ linked against %{NAME}.
 %package -n %{develname}
 Summary:	C routines for performing sparse LU factorization
 Group:		Development/C
-Requires:	suitesparse-common-devel >= 3.0.0
+Requires:	suitesparse-common-devel >= 3.2.0-2
 Requires:	%{libname} = %{epoch}:%{version}-%{release}
 Provides:	%{name}-devel = %{epoch}:%{version}-%{release}
 Obsoletes: 	%mklibname %{name} 1 -d
