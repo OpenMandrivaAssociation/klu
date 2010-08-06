@@ -3,7 +3,7 @@
 %define name		klu
 %define NAME		KLU
 %define version		1.1.1
-%define release		%mkrel 1
+%define release		%mkrel 2
 %define major		%{version}
 %define libname		%mklibname %{name} %{major}
 %define develname	%mklibname %{name} -d
