@@ -9,7 +9,7 @@ Release:	1
 Epoch:		1
 Summary:	Routines for performing sparse LU factorization
 Group:		System/Libraries
-License:	LGPL
+License:	LGPLv2+
 URL:		http://www.cise.ufl.edu/research/sparse/klu/
 Source0:	http://www.cise.ufl.edu/research/sparse/klu/%{NAME}-%{version}.tar.gz
 BuildRequires:	amd-devel
