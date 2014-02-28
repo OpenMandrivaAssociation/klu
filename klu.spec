@@ -18,7 +18,7 @@ BuildRequires:	camd-devel
 BuildRequires:	ccolamd-devel
 BuildRequires:	cholmod-devel
 BuildRequires:	colamd-devel
-BuildRequires:	suitesparse-common-devel >= 4.0.0
+BuildRequires:	suitesparseconfig-devel >= 4.2.1-3
 
 %description
 KLU is a sparse LU factorization algorithm well-suited for use in
