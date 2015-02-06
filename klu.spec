@@ -5,7 +5,7 @@
 
 Name:		klu
 Version:	1.2.1
-Release:	2
+Release:	3
 Epoch:		1
 Summary:	Routines for performing sparse LU factorization
 Group:		System/Libraries
